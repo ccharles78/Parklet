@@ -1,1 +1,0 @@
-db.homeOwner.insert({"firstName": "Charles", "lastName": "Guirola-Ribeiro", "phoneNumber": "786-859-5566", "address": "20756 SW 11 St", "loginName": "CharlesR", "password": "password", "car":{ "make": "Toyota", "model": "Corolla", "color": "Gold", "licensePlate": "ERF123"}})
