@@ -17,7 +17,6 @@ if (process.env.NODE_ENV === "production") {
 }
 //Add routes, both API and view
 app.use(routes);
-// Testing commit changes
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/homeOwners");
