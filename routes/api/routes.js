@@ -18,7 +18,7 @@ router.route("/mgmt")
 
 
 // login for home owners  to find thier guests and add a guest
-router.route("/home")
+router.route("/guest")
   .get(parkingController.findAllGuests)
   .post(parkingController.createGuests);
   
