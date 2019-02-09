@@ -12,6 +12,7 @@ car: {
     licensePlate: {type: String, required: true},
 },
 date: {type: Date, default: Date.now},
+status: {type: String, required:false},
 
 
 });

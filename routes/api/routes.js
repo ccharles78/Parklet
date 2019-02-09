@@ -3,10 +3,10 @@ const parkingController = require("../../controllers/parkingController");
 
 // login for property managers to find all homeowners and crate them
 router.route("/mgmt")
-  .get(parkingController.findAllHomeOwners)
-  .post(parkingController.createHomeOwners)
-  .put(parkingController.updateHomeOwners)
-  .delete(parkingController.removeHomeOwners);
+  .get(parkingController.findAllUsers)
+  .post(parkingController.createUser)
+  .put(parkingController.updateUser)
+  .delete(parkingController.removeUser);
 
 // Matches with "/api/article/:id"
 // router.route("/:id")
@@ -26,6 +26,6 @@ router.route("/guest")
 router.route("/security")
   //.get(parkingController.findById)
   .get(parkingController.findAllGuests)
-  .delete(parkingController.removeHomeOwners);
+  .delete(parkingController.removeUser);
 
 module.exports = router;
