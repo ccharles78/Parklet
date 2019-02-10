@@ -32,8 +32,14 @@ module.exports = {
   createGuests: function(req, res) {
     db.guestCar
       .create(req.body)
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
+      .then(dbModel =>{
+        db.users.findOneAndUpdate({where:{_id:req.body.userId}}, { $push: { guestcars: dbModel._id } }, { new: true });
+        res.json(dbModel)
+      })
+      .catch(err => {
+        console.log(err)
+        res.status(422).json(err);
+      })
   },
   updateHomeOwners: function(req, res) {
     db.homeOwner
