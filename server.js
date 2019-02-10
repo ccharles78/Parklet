@@ -29,8 +29,29 @@ if (process.env.NODE_ENV === "production") {
 app.use(routes);
 
 // Connect to the Mongo DB
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/homeOwners");
+const mongodbUri ='mongodb://@ds249992.mlab.com:49992/homeowner';
+mongoose.connect(mongodbUri, {
+  useNewUrlParser: true,
+  auth: {
+    user: 'Admin',
+    password: 'A12345'
+  }
+});
+ 
+const connection = mongoose.connection;
 
+const options = { server: { socketOptions: { keepAlive: 300000, connectTimeoutMS: 30000 } }, 
+                replset: { socketOptions: { keepAlive: 300000, connectTimeoutMS : 30000 } } };  
+                
+                connection.on('error', console.error.bind(console, 'connection error:'));  
+ 
+                connection.once('open', function() {
+                  // Wait for the database connection to establish, then start the app. 
+                  console.log("MongoDB database connected sucessfully");                        
+                });
+                
+                
+                
 // Start the API server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
