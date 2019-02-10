@@ -3,7 +3,7 @@ const db = require("../models");
 // Defining methods for the articleController
 module.exports = {
   findAllHomeOwners: function(req, res) {
-    db.homeOwner
+    db.users
       .find(req.query)
       .sort({ date: -1 })
       .then(dbModel => res.json(dbModel))
@@ -24,7 +24,7 @@ module.exports = {
 //       .catch(err => res.status(422).json(err));
 //   },
   createHomeOwners: function(req, res) {
-    db.homeOwner
+    db.users
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
@@ -42,7 +42,7 @@ module.exports = {
       })
   },
   updateHomeOwners: function(req, res) {
-    db.homeOwner
+    db.users
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
@@ -54,7 +54,7 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   removeHomeOwners: function(req, res) {
-    db.homeOwner
+    db.users
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
