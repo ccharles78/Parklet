@@ -1,4 +1,5 @@
 module.exports = {
-  guestCar: require("./guestCar"),
-  homeOwner: require("./homeOwner")
+  guestcar: require("./guestCar"),
+  homeOwner: require("./homeOwner"),
+  users: require("./users")
 };

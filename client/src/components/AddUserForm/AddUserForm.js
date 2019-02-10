@@ -4,13 +4,13 @@ import API from "../../utils/API";
 
 
 
-class AddOwnerForm extends Component {
+class AddUserForm extends Component {
   state = {
     firstName: "",
     lastName: "",
     phoneNumber: "",
     address: "",
-    loginName: "",
+    username: "",
     password: "",
     carMake: "",
     carModel: "",
@@ -30,14 +30,15 @@ class AddOwnerForm extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-     if (this.state.firstName && this.state.lastName && this.state.phoneNumber && this.state.address && this.state.loginName && this.state.password && this.state.carMake && this.state.carModel && this.state.carColor && this.state.licensePlate) {
+     if (this.state.firstName && this.state.lastName && this.state.phoneNumber && this.state.address && this.state.username && this.state.password && this.state.userType && this.state.carMake && this.state.carModel && this.state.carColor && this.state.licensePlate) {
     API.saveOwner({
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       phoneNumber: this.state.phoneNumber,
       address: this.state.address,
-      loginName: this.state.loginName,
+      username: this.state.username,
       password: this.state.password,
+      userType: this.state.userType,
       car: {
         make: this.state.carMake,
       model: this.state.carModel,
@@ -46,6 +47,8 @@ class AddOwnerForm extends Component {
       }
 
 
+
+    
      // author: this.state.author,
       // synopsis: this.state.synopsis
     })
@@ -87,9 +90,9 @@ class AddOwnerForm extends Component {
             placeholder="Address"
           />
           <Input
-            value={this.state.loginName}
+            value={this.state.username}
             onChange={this.handleInputChange}
-            name="loginName"
+            name="username"
             placeholder="Login Name"
           />
           <Input
@@ -97,6 +100,12 @@ class AddOwnerForm extends Component {
             onChange={this.handleInputChange}
             name="password"
             placeholder="Password"
+          />
+           <Input
+            value={this.state.userType}
+            onChange={this.handleInputChange}
+            name="userType"
+            placeholder="userType"
           />
           <Input
             value={this.state.carMake}
@@ -127,7 +136,7 @@ class AddOwnerForm extends Component {
 
 
           <FormBtn
-            disabled={!(this.state.firstName && this.state.lastName && this.state.phoneNumber && this.state.address && this.state.loginName && this.state.password && this.state.carMake && this.state.carModel && this.state.carColor && this.state.licensePlate)}
+            disabled={!(this.state.firstName && this.state.lastName && this.state.phoneNumber && this.state.address && this.state.username && this.state.password && this.state.userType && this.state.carMake && this.state.carModel && this.state.carColor && this.state.licensePlate)}
             onClick={this.handleFormSubmit}
           >
             Submit GUest
@@ -141,4 +150,4 @@ class AddOwnerForm extends Component {
 }
 
 
-export default AddOwnerForm;
+export default AddUserForm;

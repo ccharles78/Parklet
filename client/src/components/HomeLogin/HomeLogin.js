@@ -1,52 +1,73 @@
 import React, { Component } from "react";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import API from "../../utils/API";
-import { withAuth } from '@okta/okta-react';
 
 
 
 
-export default withAuth(class HomeLogin extends Component {
-    constructor(props) {
-      super(props);
-      this.state = { authenticated: null };
-      this.checkAuthentication = this.checkAuthentication.bind(this);
-      this.login = this.login.bind(this);
-      this.logout = this.logout.bind(this);
+class HomeLogin extends Component {
+  state = {
+    username: "",
+    password: "",
     }
-  
-    async checkAuthentication() {
-      const authenticated = await this.props.auth.isAuthenticated();
-      if (authenticated !== this.state.authenticated) {
-        this.setState({ authenticated });
-      }
-    }
-  
-    async login() {
-      this.props.auth.login('/');
-    }
-  
-    async logout() {
-      this.props.auth.logout('/');
-    }
-  
-    async componentDidMount() {
-      this.checkAuthentication();
-    }
-  
-    async componentDidUpdate() {
-      this.checkAuthentication();
-    }
-  
-    render() {
-      if (this.state.authenticated === null) return null;
-      return this.state.authenticated ?
-        <button onClick={this.logout}>Logout</button> :
-        <button onClick={this.login}>Login</button>;
-    }
-  });
 
 
 
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+     if (this.state.username && this.state.password) {
+    API.homeLogin({
+      username: this.state.username,
+      password: this.state.password
+   
+    })
+      .then(res => console.log("submitted"))
+      .catch(err => console.log(err));
+    }
+    console.log(this.state);
+  };
 
 
+
+  render() {
+    return (
+
+      <div>
+        <form>
+          <Input
+            value={this.state.username}
+            onChange={this.handleInputChange}
+            name="username"
+            placeholder="User Name"
+          />
+          <Input
+            value={this.state.password}
+            onChange={this.handleInputChange}
+            name="password"
+            placeholder="Password"
+          />
+          
+
+          <FormBtn
+            disabled={!(this.state.username && this.state.password)}
+            onClick={this.handleFormSubmit}
+          >
+            Login
+          </FormBtn>
+        </form>
+
+
+      </div>
+    );
+  }
+}
+
+
+export default HomeLogin;

@@ -10,7 +10,6 @@ const User = new Schema({
         address: { type: String, required: false },
         password:{ type: String, required: false },
         userType:{ type: Number, required: false },
-        //this 'car' is the homeowners car
 car: {
     make: { type: String, required: false },
     model: {type: String, required:false},
