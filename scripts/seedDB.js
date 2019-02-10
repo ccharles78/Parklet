@@ -108,12 +108,12 @@ const guestCarSeed = [
 
 
   const userSeed = [
-    
+    //seed user type 1 for owner user and login
     {
-        userType: "Owner",
+        userType: "1",
         firstName: "Henty",
         lastName: "lopz",
-        username: "SLisa",
+        username: "Owner1",
         password: "Parklet",
         phoneNumber: "111-222-5555",
         address: "222 SW 54th St",
@@ -125,24 +125,41 @@ const guestCarSeed = [
             licensePlate: "ERF123"
         }      
       },
+      //seed user type 2 for mgmt user and login
       {
-        userType: "Owner",
-        firstName: "Charles",
+        userType: "2",
+        firstName: "David",
         lastName: "Ri",
-        username: "",
-        password: "",
+        username: "Mgmt",
+        password: "Parklet",
         phoneNumber: "",
         address: "",
-        lotNumber: "1",
+        lotNumber: "",
         car: {
-            make: "Bently",
-            model: "Corolla",
-            color: "Gold",
-            licensePlate: "ERF123"
+            make: "",
+            model: "",
+            color: "",
+            licensePlate: ""
         }
-      
- 
-      
+        
+      },
+      //seed user type 3 for security user and login
+      {
+        userType: "3",
+        firstName: "Jeffe",
+        lastName: "Garcia",
+        username: "Security1",
+        password: "Parklet",
+        phoneNumber: "",
+        address: "",
+        lotNumber: "",
+        car: {
+            make: "",
+            model: "",
+            color: "",
+            licensePlate: ""
+        }
+        
       }
       
     
