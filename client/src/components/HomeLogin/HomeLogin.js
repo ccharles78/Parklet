@@ -6,12 +6,14 @@ import API from "../../utils/API";
 
 
 class HomeLogin extends Component {
-  state = {
-    username: "",
-    password: "",
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      username: "",
+      password: "",
     }
-
-
+  }
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -22,16 +24,16 @@ class HomeLogin extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-     if (this.state.username && this.state.password) {
-    API.homeLogin({
-      username: this.state.username,
-      password: this.state.password
-   
-    })
-      .then(res => console.log("submitted"))
-      .catch(err => console.log(err));
+    if (this.state.username && this.state.password) {
+      API.homeLogin({
+        username: this.state.username,
+        password: this.state.password
+
+      })
+        .then(res => this.props.changeLoginState())
+        .then(res => console.log("submitted"))
+        .catch(err => console.log(err));
     }
-    console.log(this.state);
   };
 
 
@@ -53,7 +55,7 @@ class HomeLogin extends Component {
             name="password"
             placeholder="Password"
           />
-          
+
 
           <FormBtn
             disabled={!(this.state.username && this.state.password)}

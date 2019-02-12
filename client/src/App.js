@@ -18,10 +18,26 @@ import OwnerPage from './components/OwnerPage';
 // }
 
 class App extends Component {
-  render() {
+
+
+  //default, user hits the page and they will not be logged in and will not have a user type
+  constructor(props) {
+    super(props)
     this.state = {
-      loggedIn: false
+      login: false,
+      userType: null
     }
+  }
+
+  changeLoginState = () => {
+    
+    this.setState({
+      login: true
+    });
+  };
+
+  render() {
+    
 
 
 
@@ -29,15 +45,24 @@ class App extends Component {
 
       <Router>
         <div>
-          <Nav />
+          <Nav login={this.state.login} />
+          
+
+          
           <Switch>
             <Route exact path="/guest" component={AddGuestForm} />
             <Route exact path="/mgmt" component={AddUserForm} />
             {/* <Route exact path="/books/:id" component={Detail} />
               <Route component={NoMatch} /> */}
-              <Route exact path="/login" component={HomeLogin} />
-              <Route exact path="/owner" component={OwnerPage} />
-          
+
+            {
+              //i got login to work here, we can talk about it next time
+            }
+            <Route exact path="/login" render={props => (
+              <HomeLogin {...props} changeLoginState={this.changeLoginState} />
+            )} />
+            <Route exact path="/owner" component={OwnerPage} />
+
           </Switch>
 
         </div>

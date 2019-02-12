@@ -1,5 +1,5 @@
 module.exports = {
   guestcar: require("./guestCar"),
-  homeOwner: require("./homeOwner"),
+  //homeOwner: require("./homeOwner"),
   users: require("./users")
 };
