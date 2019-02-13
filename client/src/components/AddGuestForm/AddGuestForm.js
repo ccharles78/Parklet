@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import API from "../../utils/API";
+import {Button,Form,column}from 'react-materialize'
 
 
 
@@ -38,9 +39,8 @@ class AddGuestForm extends Component {
       model: this.state.carModel,
       color: this.state.carColor,
       licensePlate: this.state.licensePlate
-      
-      },
-      userId: this.props.ownerID
+      }
+
      // author: this.state.author,
       // synopsis: this.state.synopsis
     })
@@ -55,14 +55,16 @@ class AddGuestForm extends Component {
   render() {
     return (
 
-      <div>
-        <form>
+      <form>
+      <row>      
+        
           <Input
             value={this.state.firstName}
             onChange={this.handleInputChange}
             name="firstName"
             placeholder="First Name"
           />
+          
           <Input
             value={this.state.lastName}
             onChange={this.handleInputChange}
@@ -109,10 +111,10 @@ class AddGuestForm extends Component {
           >
             Submit GUest
           </FormBtn>
+          </row>
         </form>
-
-
-      </div>
+        
+      
     );
   }
 }
