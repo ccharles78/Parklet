@@ -38,8 +38,9 @@ class AddGuestForm extends Component {
       model: this.state.carModel,
       color: this.state.carColor,
       licensePlate: this.state.licensePlate
-      }
-
+      
+      },
+      userId: this.props.ownerID
      // author: this.state.author,
       // synopsis: this.state.synopsis
     })

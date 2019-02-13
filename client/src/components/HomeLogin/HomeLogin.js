@@ -30,7 +30,20 @@ class HomeLogin extends Component {
         password: this.state.password
 
       })
-        .then(res => this.props.changeLoginState())
+        .then(res => {
+          console.log(res.data)
+          this.props.setCurrentUser(res.data)
+          this.props.changeLoginState()
+          if (res.data.userType === 2) {
+            this.props.history.push("/owner")
+          }
+          else if (res.data.userType === 1) {
+            this.props.history.push("/mgmt")
+          }
+          else if (res.data.userType === 3) {
+            this.props.history.push("/security")
+          }
+        })
         .then(res => console.log("submitted"))
         .catch(err => console.log(err));
     }

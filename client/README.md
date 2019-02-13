@@ -1,68 +1,69 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Parklet
 
-## Available Scripts
+Run NPM I at start
 
-In the project directory, you can run:
+PART 1-------------------------------------------------------------------------------------------------------
 
-### `npm start`
+In order to use the new functionality you need to have users in the database with a user type. The users types work as follows:
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+// 1 - mgmt
+// 2 - owner
+// 3 - security
+// 4 - are developers
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+eg. A user type with 1 is managment that can enter in any type of user (home owner, another manager, security)
 
-### `npm test`
+Since your datbase does not match mine and if you alreayd have users created they most likely do not have a user type assigned in the database you need to create new users with a usr type as follows
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+From the command prompt before you run yarn start, run: node seedDB.js  to seed your database, you can see 4 types of users that will be created each with a unique user type. You can look at the seedDB file in the scripts folder for more info on the users created, but I have provided the user types, login, and passowrds below for reference (the login and passwords are case sensitive).
 
-### `npm run build`
+If you want to add more users than what is in the seedDB, you can login as an owner (type 2 below) and create more users. When you do this you will have to indicate the user type of the user you are creating.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+User type 1 for mgmt 
+      
+        userType: "1",
+        username: "Mgmt",
+        password: "Parklet",
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+User type 2 for owner
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+        userType: "2",
+        username: "Owner1",
+        password: "Parklet",
+ 
+User type 3 for secuirty (Note: this link does not do anything yet, still have to code it)      
+ 
+        userType: "3",
+        username: "Security1",
+        password: "Parklet",
+       
+User type 4  for us the developers so we can see all the links w/out having to login as someone particular  
+          userType: "4",
+          username: "Dev",
+          password: "Parklet",
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+PART 2-------------------------------------------------------------------------------------------------------
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Once you have your users setup with the user types you are testing, run yarn start
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The login page will open, you should login with a user in your database that has a defined user type of 1 - 4. If you try to loign with a user that does not have a user type, the page will not repond. 
 
-## Learn More
+If you login as a user with a paritcular user type you will be directed only to the page that user is authroized to see. What user types will see and the functionality in the page is defined below:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-User type 1 - You are the property manager 
+These users will get routed to the AddFprmPage.Js. 
+On this page any type of user can be created such as a home owner, security, or another property manager
+Make sure whatever user you create has a user type between 1 - 4 or they will not be able to login
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+-User type 2 - You are the home owner
+These users will get routed to the OwnerPage.Js. 
+On this page, the owner can see any guests they have checked in (This code is not dynamic yet, there are some tweaks I need to make)
 
-### Code Splitting
+-User type 3 - You are the security guard
+Page not crated yet 
+On this page, the security can see any active guests in the neighborhood
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+-User type 4 - You are the developer (team us)
+When you login you will get links to everything so you do not have to continously login as a different user

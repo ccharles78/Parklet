@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Input, TextArea, FormBtn } from "./Form";
 import API from "../utils/API";
+import AddGuestForm from "./AddGuestForm";
 
 
 
@@ -12,7 +13,7 @@ class OwnerPage extends Component {
   }
 
 componentDidMount(){
- API.getOwners("5c605aaa1135683308a27216")
+ API.getOwners(this.props.ownerID)
  .then(res => {
    console.log(res)
    this.setState({owner: res.data})
@@ -27,6 +28,8 @@ componentDidMount(){
   render() {
     return (
 <div>
+  <AddGuestForm ownerID={this.props.ownerID} />
+  <h1> List of your current guests</h1>
   <ul>
   {this.state.owner && this.state.owner.guestcars.map(car => (
         <div>

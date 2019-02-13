@@ -9,6 +9,7 @@ import Nav from './components/Nav';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import OwnerPage from './components/OwnerPage';
+import { createSecureContext } from 'tls';
 //import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react';
 
 // const config = {
@@ -25,19 +26,26 @@ class App extends Component {
     super(props)
     this.state = {
       login: false,
-      userType: null
+      currentUser: {}
     }
   }
 
+  setCurrentUser = (userData) => {
+    this.setState({
+      currentUser: userData
+    })
+
+  }
+
   changeLoginState = () => {
-    
+
     this.setState({
       login: true
     });
   };
 
   render() {
-    
+
 
 
 
@@ -45,10 +53,10 @@ class App extends Component {
 
       <Router>
         <div>
-          <Nav login={this.state.login} />
-          
+          <Nav login={this.state.login} userType={this.state.currentUser.userType}/>
 
-          
+
+
           <Switch>
             <Route exact path="/guest" component={AddGuestForm} />
             <Route exact path="/mgmt" component={AddUserForm} />
@@ -56,12 +64,18 @@ class App extends Component {
               <Route component={NoMatch} /> */}
 
             {
-              //i got login to work here, we can talk about it next time
+              //code that defaults to the login page
             }
             <Route exact path="/login" render={props => (
-              <HomeLogin {...props} changeLoginState={this.changeLoginState} />
+              <HomeLogin {...props}
+                changeLoginState={this.changeLoginState}
+                setCurrentUser={this.setCurrentUser} />
             )} />
-            <Route exact path="/owner" component={OwnerPage} />
+
+            <Route exact path="/owner" render={props => (
+              <OwnerPage {...props}
+                ownerID={this.state.currentUser._id} />
+            )} />
 
           </Switch>
 
