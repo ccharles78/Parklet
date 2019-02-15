@@ -55,6 +55,14 @@ class HomeLogin extends Component {
     return (
 
       <div>
+      <div class="container center" id="logo">
+        <div class="row">
+          <i class="fas fa-parking fa-spin fa-fw"></i>arklet
+      </div>
+      <div class="row">
+          <i class="medium material-icons">directions_car</i>
+      </div>
+      </div>
         <form>
           <Input
             value={this.state.username}
