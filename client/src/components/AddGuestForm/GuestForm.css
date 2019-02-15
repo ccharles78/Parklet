@@ -15,10 +15,10 @@ body{
 
 #logo{
     font-family: 'Chivo', sans-serif;
-    font-size: 70px;
+    font-size: 50px;
     color: white;
-    margin-top: 0px;
-    margin-bottom:50px;
+    margin-top: 250px;
+    margin-bottom:250px;
 }
 
 nav {
