@@ -56,9 +56,8 @@ class AddGuestForm extends Component {
     return (
 
       <form>
-      <row>      
-        
-          <Input
+            
+              <Input
             value={this.state.firstName}
             onChange={this.handleInputChange}
             name="firstName"
@@ -111,7 +110,7 @@ class AddGuestForm extends Component {
           >
             Submit GUest
           </FormBtn>
-          </row>
+          
         </form>
         
       
