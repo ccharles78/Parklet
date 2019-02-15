@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import API from "../../utils/API";
-import {Button,Form,Col}from 'react-materialize';
+import {Button,Form,column}from 'react-materialize'
 
 
 
@@ -55,10 +55,9 @@ class AddGuestForm extends Component {
   render() {
     return (
 
-
-        <form>
+      <form>
             
-         <Input
+              <Input
             value={this.state.firstName}
             onChange={this.handleInputChange}
             name="firstName"
@@ -111,8 +110,8 @@ class AddGuestForm extends Component {
           >
             Submit GUest
           </FormBtn>
-         </form>
-        
+          
+        </form>
         
       
     );
