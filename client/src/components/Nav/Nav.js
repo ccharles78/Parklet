@@ -17,7 +17,7 @@ const Nav = (props) => {
       navLinks = <Link to="/mgmt">Add User</Link>;
       break;
     case 2:
-      //navLinks = <Link to="/owner">Add Guest</Link>
+      navLinks = <Link to="/owner">Add Guest</Link>
       break;
     case 3:
       navLinks = <Link to="/security">List of all current guests</Link>
@@ -30,6 +30,8 @@ const Nav = (props) => {
           <Link to="/owner">Add Guest</Link>
           <br />
           <Link to="/security">List of all current guests</Link>
+          <br />
+          <Link to="/ownList">List of all current guests</Link>
         </div>
       )
       break;

@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import API from "../../utils/API";
+import '../../index.css';
+import '../../load.css';
+import '../../login.css';
+import '../../main.css';
+import '../../nag.css';
 
 
 
@@ -12,6 +17,9 @@ class HomeLogin extends Component {
     this.state = {
       username: "",
       password: "",
+      showLogin: false
+
+
     }
   }
 
@@ -19,6 +27,12 @@ class HomeLogin extends Component {
     const { name, value } = event.target;
     this.setState({
       [name]: value
+    });
+  };
+
+  loginButton = event => {
+    this.setState({
+      showLogin: true
     });
   };
 
@@ -55,42 +69,102 @@ class HomeLogin extends Component {
     return (
 
       <div>
-      <div class="container center" id="logo">
-        <div class="row">
-          <i class="fas fa-parking fa-spin fa-fw"></i>arklet
+        <div className="container center">
+        <div className="row">
+{!this.state.showLogin ? 
+ 
+        <div id="logo">
+          <div className="row">
+            <i className="fas fa-parking fa-spin fa-fw"></i>arklet
       </div>
-      <div class="row">
-          <i class="medium material-icons">directions_car</i>
-      </div>
-      </div>
-        <form>
-          <Input
-            value={this.state.username}
-            onChange={this.handleInputChange}
-            name="username"
-            placeholder="User Name"
-          />
-          <Input
-            value={this.state.password}
-            onChange={this.handleInputChange}
-            name="password"
-            placeholder="Password"
-          />
+          <div className="row">
+            <i className="medium material-icons">directions_car</i>
+          </div>
+          <div className="row"><button onClick={this.loginButton}>Login</button></div>
+        
+
+        </div>
+        
+        : 
+
+        <div className="col s12 offset-s3 z-depth-4" id="panel">
+          <form>
+            <div className="row">
+              <div className="login-header col s12 center" id="logo">
+                <i className="fas fa-parking"></i>arklet
+                            </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12" id="email">
+                <i className="material-icons prefix">email</i>
+                <input 
+                 value={this.state.username}
+                 onChange={this.handleInputChange}
+                 name="username"
+                type="text" 
+                className="validate" />
+                  <label htmlFor="Login">Login ID</label>
+                            </div>
+              </div>
+              <div className="row">
+                <div className="input-field  col s12" id="password">
+                  <i className="material-icons prefix">lock_outline</i>
+                  <input 
+                  value={this.state.password}
+                  onChange={this.handleInputChange}
+                  name="password"
+                  type="password" 
+                  className="validate" />
+                    <label htmlFor="password">Password</label>
+                            </div>
+                </div>
 
 
-          <FormBtn
-            disabled={!(this.state.username && this.state.password)}
-            onClick={this.handleFormSubmit}
-          >
-            Login
-          </FormBtn>
-        </form>
+                <div className="row">
+                  <div className="input-field col s12">
+                   <button
+                disabled={!(this.state.username && this.state.password)}
+                onClick={this.handleFormSubmit}
+                className="btn waves-effect waves-light col s12"
+              >Login </button>
+                  </div>
+                </div>
+                    </form>
 
+            </div>
+            
 
-      </div>
-    );
-  }
 }
+</div>
+</div>
+            {/* <form>
+              <Input
+                value={this.state.username}
+                onChange={this.handleInputChange}
+                name="username"
+                placeholder="User Name"
+              />
+              <Input
+                value={this.state.password}
+                onChange={this.handleInputChange}
+                name="password"
+                placeholder="Password"
+              />
 
 
-export default HomeLogin;
+              <FormBtn
+                disabled={!(this.state.username && this.state.password)}
+                onClick={this.handleFormSubmit}
+              >
+                Login
+          </FormBtn>
+            </form> */}
+
+
+      </div>
+          );
+        }
+      }
+      
+      
+      export default HomeLogin;

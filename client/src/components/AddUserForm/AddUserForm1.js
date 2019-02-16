@@ -20,7 +20,10 @@ class AddUserForm extends Component {
 
   }
 
-
+  componentDidMount() {
+    let elems = document.querySelectorAll('.dropdown-trigger');
+    M.Dropdown.init(elems, {inDuration: 300, outDuration: 225});
+}
 
   handleInputChange = event => {
     const { name, value } = event.target;
@@ -74,19 +77,44 @@ class AddUserForm extends Component {
                   <i className="fas fa-parking"></i>arklet
               </div>
               </div>
+
+
+              <div className="input-field col s12">
+                <a className='dropdown-button btn' data-activates='dropdown1'>Drop Me!</a>
+                <ul id='dropdown1' className='dropdown-content'>
+                  <li><a href="#!">one</a></li>
+                  <li><a href="#!">two</a></li>
+                  <li className="divider"></li>
+                  <li><a href="#!">three</a></li>
+                  <li><a href="#!"><i className="material-icons">view_module</i>four</a></li>
+                 <li><a href="#!"><i className="material-icons">cloud</i>five</a></li>
+                </ul>
+            </div>
+
+              
               <div className="row">
                 <div className="input-field col s12">
-                  <i className="material-icons prefix">account_circle</i>
-                  <input
+                  <i className="material-icons prefix dropdown-button btn" data-activates='dropdown1'>account_circle</i>
+                  <ul id='dropdown1' className='dropdown-content'
                     value={this.state.userType}
                     onChange={this.handleInputChange}
                     name="userType"
                     id="icon_prefix"
                     type="text"
-                    className="validate" />
+                    className="validate">
                   <label htmlFor="icon_prefix">User Type</label>
+                  <li><a href="#!">1</a></li>
+                  <li><a href="#!">2</a></li>
+                  <li><a href="#!">3</a></li>
+                  <li><a href="#!">4</a></li>
+                  </ul>
                 </div>
                 </div>
+
+
+
+
+                
                 <div className="row">
                   <div className="input-field col s12">
                     <i className="material-icons prefix">account_circle</i>
@@ -156,7 +184,7 @@ class AddUserForm extends Component {
                     <input
                       value={this.state.password}
                       onChange={this.handleInputChange}
-                      name="password"
+                      name="phoneNumber"
                       id="icon_prefix"
                       type="text"
                       className="validate" />

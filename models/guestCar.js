@@ -12,6 +12,8 @@ car: {
     licensePlate: {type: String, required: true},
 },
 date: {type: Date, default: Date.now},
+//expDate: {type: Date, default: new Date(new Date() + 24*60*60*1000) },
+expDate: {type: Date, default: new Date(+new Date() + 24*60*60*1000) },
 status: {type: String, required:false},
 
 

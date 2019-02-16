@@ -1,0 +1,34 @@
+body{
+    background-image: radial-gradient(#5f2c82, #49a09d);
+    height: 100vh;
+    font-family: 'Chivo', sans-serif;
+    color: #5680E9;
+}
+
+img {
+  width: 100%;
+}
+
+/* Chip */
+.chip {
+  height: 50px !important;
+  width: 50px !important;
+  background-color: #ABBCE6 !important;
+  border-radius: 50% !important;
+  padding: 9.5px 2px 2px 1px !important;
+}
+
+i.small {
+  color: #5680E9;
+}
+
+
+/* Cards */
+
+.icon-block {
+  background: #F1F9FF;
+}
+
+i.medium {
+  font-size: 3rem !important;
+}

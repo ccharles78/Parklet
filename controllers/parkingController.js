@@ -34,13 +34,13 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   createGuests: function(req, res) {
-    console.log(req.body)
+    console.log("createGuests1", req.body)
     db.guestcar
       .create(req.body)
       .then(dbModel =>{
-        db.users.findOneAndUpdate({_id:req.body.userId}, { $push: { guestcars: dbModel._id } }, { new: true })
+        db.users.findOneAndUpdate({_id:req.body.ownerId}, { $push: { guestcars: dbModel._id } }, { new: true })
         .then(dbuser => {
-          console.log("createGuests", dbuser)
+          console.log("createGuests2", dbuser)
           res.json(dbModel)
         })
        .catch(err => console.log(err));
@@ -76,5 +76,15 @@ removeGuests: function(req, res) {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+
+  triggerSMS: function (req, res) {
+    db.guestCars.find({
+      $and: [
+      {expirationDate: {$gt: new Date() }},
+      {expirationDate: {$lt: new Date() + 720000}}
+      ]
+      })
+  
   }
 };

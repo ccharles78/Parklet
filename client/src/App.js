@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import AddGuestForm from './components/AddGuestForm';
 import AddUserForm from './components/AddUserForm';
+
 import HomeLogin from './components/HomeLogin';
 //import MessageList from './components/MessageList';
 // import Protected from './components/Protected';
@@ -10,6 +11,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import OwnerPage from './components/OwnerPage';
 import { createSecureContext } from 'tls';
+import Security from './components/Security';
+import OwnerGuestList from './components/OwnerGuestList'
 //import { Security, SecureRoute, ImplicitCallback } from '@okta/okta-react';
 
 // const config = {
@@ -59,6 +62,8 @@ class App extends Component {
 
           <Switch>
             <Route exact path="/guest" component={AddGuestForm} />
+            <Route exact path="/ownlist" component={OwnerGuestList} />
+            <Route exact path="/security" component={Security} />
             <Route exact path="/mgmt" component={AddUserForm} />
             {/* <Route exact path="/books/:id" component={Detail} />
               <Route component={NoMatch} /> */}
@@ -66,7 +71,7 @@ class App extends Component {
             {
               //code that defaults to the login page
             }
-            <Route exact path="/login" render={props => (
+            <Route exact path="/" render={props => (
               <HomeLogin {...props}
                 changeLoginState={this.changeLoginState}
                 setCurrentUser={this.setCurrentUser} />

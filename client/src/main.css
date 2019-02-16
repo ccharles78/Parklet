@@ -1,0 +1,15 @@
+body{
+    background-image: radial-gradient(#5f2c82, #49a09d);
+    height: 100vh;
+    font-family: 'Chivo', sans-serif;
+    color: #49a09d;
+}
+
+#logo{
+    font-family: 'Chivo', sans-serif;
+    font-size: 50px;
+    color: #5f2c82;
+    margin-top: 25px;
+    margin-bottom:25px;
+}
+

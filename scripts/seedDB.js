@@ -72,9 +72,6 @@ const guestCarSeed = [
             color: "Gold",
             licensePlate: "ERF123"
         }
-      
-       
-      
       },
       {
           firstName: "Jorge",
@@ -86,9 +83,6 @@ const guestCarSeed = [
               color: "Red",
               licensePlate: "IOP545"
           }
-          
-        
-        
         },
         {
           firstName: "John",
@@ -100,8 +94,6 @@ const guestCarSeed = [
               color: "Black",
               licensePlate: "777YYY"
           }
-         
-        
         }
     
   ];
@@ -115,8 +107,8 @@ const guestCarSeed = [
     //seed user type 2 for owner user and login
     {
         userType: "2",
-        firstName: "Henty",
-        lastName: "lopz",
+        firstName: "Henry",
+        lastName: "lopez",
         username: "Owner1",
         password: "Parklet",
         phoneNumber: "111-222-5555",
@@ -162,7 +154,8 @@ const guestCarSeed = [
             model: "",
             color: "",
             licensePlate: ""
-        },
+        }
+      },
         {
           userType: "4",
           firstName: "Developer",
