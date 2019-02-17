@@ -87,7 +87,7 @@ handleFormSubmit = event => {
                   <br />
                   <p className="right">Color: {car.car.licensePlate}</p>
                   <br />
-                  <p className="right">{moment(car.expDate).format("MM DD, YYYY hh:mm:ss")}</p>
+                  <p className="right">Exp Date & Time: {moment(car.expDate).format("MM DD, YYYY hh:mm:ss")}</p>
                   <br />
                   <button onClick = {() => this.renewGuest(car)}>Renew Guest</button>
                 </div>
