@@ -59,6 +59,8 @@ handleFormSubmit = event => {
 
   render() {
     return (
+<div>
+{this.state.owner && this.state.owner.guestcars.map(car => (
 
       <div className="container">
         <div className="row">
@@ -69,25 +71,24 @@ handleFormSubmit = event => {
               </div>
               <div> 
               
-              {this.state.owner && this.state.owner.guestcars.map(car => (
+              
             
               <div className="card-stacked">
                 <h5 className="right">Guest First Name: {car.firstName}</h5>
                 <div className="card-content">
-                  <p className="right">Guest Last Name:{car.lastName}</p>
+                  <p className="left">Guest Last Name:{car.lastName}</p>
+                            <br />
+                  <p className="left">Lot # {car.lotNumber}</p>
                   <br />
+                  <p className="left">Make: {car.car.make}</p>
                   <br />
-                  <p className="right">Lot # {car.lotNumber}</p>
+                  <p className="left">Model: {car.car.model}</p>
                   <br />
-                  <p className="right">Make: {car.car.make}</p>
+                  <p className="left">Color: {car.car.color}</p>
                   <br />
-                  <p className="right">Model: {car.car.model}</p>
+                  <p className="left">License Plate: {car.car.licensePlate}</p>
                   <br />
-                  <p className="right">Color: {car.car.color}</p>
-                  <br />
-                  <p className="right">Color: {car.car.licensePlate}</p>
-                  <br />
-                  <p className="right">Exp Date & Time: {moment(car.expDate).format("MM DD, YYYY hh:mm:ss")}</p>
+                  <p className="left">Exp Date & Time: {moment(car.expDate).format("MM DD, YYYY hh:mm:ss")}</p>
                   <br />
                   <button onClick = {() => this.renewGuest(car)}>Renew Guest</button>
                 </div>
@@ -95,17 +96,19 @@ handleFormSubmit = event => {
              
              
             
-            ))}
+           
             </div>
           </div>
         </div>
         </div>
 
-        <button onClick={this.handleFormSubmit}>Trigger SMS</button>
+        
         </div>
 
-     
-      
+))}  
+
+<button onClick={this.handleFormSubmit}>Trigger SMS</button>
+</div>     
 
 
 

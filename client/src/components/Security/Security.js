@@ -36,7 +36,8 @@ return moment(guest.expDate).isAfter(moment())
 })
 
     return (
-
+      <div>
+      {activeGuests.length && activeGuests.map(car => (
       <div className="container">
         <div className="row">
           <div className="col s12 m10">
@@ -46,35 +47,35 @@ return moment(guest.expDate).isAfter(moment())
               </div>
               <div> 
               
-              {activeGuests.length && activeGuests.map(car => (
+            
             
               <div className="card-stacked">
                 <h5 className="right">License Plate: {car.car.licensePlate}</h5>
                 <div className="card-content">
-                  <p className="right">Guest Last Name: {car.lastName}</p>
+                  <p className="left">Guest Last Name: {car.lastName}</p>
                   <br />
-                  <p className="right">Lot # {car.lotNumber}</p>
+                  <p className="left">Lot # {car.lotNumber}</p>
                   <br />
-                  <p className="right">Make: {car.car.make}</p>
+                  <p className="left">Make: {car.car.make}</p>
                   <br />
-                  <p className="right">Model: {car.car.model}</p>
+                  <p className="left">Model: {car.car.model}</p>
                   <br />
-                  <p className="right">Color: {car.car.color}</p>
+                  <p className="left">Color: {car.car.color}</p>
                   <br />
-                  <p className="right">Exp Date & Time: {moment(car.expDate).format("MM DD, YYYY hh:mm:ss")}</p>
+                  <p className="left">Exp Date & Time: {moment(car.expDate).format("MM DD, YYYY hh:mm:ss")}</p>
                 </div>
               </div>
              
             
-            ))}
+           
             </div>
           </div>
         </div>
         </div>
         </div>
 
-     
-      
+))}
+</div>  
 
 
 
