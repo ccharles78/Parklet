@@ -20,16 +20,21 @@ router.route("/owner/:id")
   //.post(parkingController.createGuests);
 
 
-// login for home owners  to find thier guests and add a guest
+// this allows homeowners to creat a guest and the security will see all guests. The homeonwer only see's thier guests when you login and the user object is returned with the list of guest cars that populates via the login route.
 router.route("/guest")
   .get(parkingController.findAllGuests)
   .post(parkingController.createGuests);
+
+
+  router.route("/guest/:id")
+  .put(parkingController.updateGuests);
   
 // login for securoty to find all guests
-router.route("/security")
+//router.route("/security")
   //.get(parkingController.findById)
-  .get(parkingController.findAllGuests)
-  .delete(parkingController.removeUser);
+  //.get(parkingController.findAllGuests)
+ // .delete(parkingController.removeUser);
+
 
   router.route("/login")
   //.get(parkingController.findById)

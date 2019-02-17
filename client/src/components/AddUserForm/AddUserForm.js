@@ -30,8 +30,8 @@ class AddUserForm extends Component {
   };
 
   handleFormSubmit = event => {
-    event.preventDefault();
-    if (this.state.firstName && this.state.lastName && this.state.phoneNumber && this.state.address && this.state.username && this.state.password && this.state.userType && this.state.carMake && this.state.carModel && this.state.carColor && this.state.licensePlate) {
+   event.preventDefault();
+    //if (this.state.firstName && this.state.lastName && this.state.phoneNumber && this.state.address && this.state.username && this.state.password && this.state.userType && this.state.carMake && this.state.carModel && this.state.carColor && this.state.licensePlate) {
       API.saveOwner({
         firstName: this.state.firstName,
         lastName: this.state.lastName,
@@ -50,12 +50,11 @@ class AddUserForm extends Component {
 
 
 
-        // author: this.state.author,
-        // synopsis: this.state.synopsis
+        
       })
         .then(res => console.log("submitted"))
         .catch(err => console.log(err));
-    }
+    //}
     //console.log(this.state);
   };
 
@@ -219,7 +218,7 @@ class AddUserForm extends Component {
                 <div className="row">
                   <div className="input-field col s12">
                     <button
-                      disabled={!(this.state.firstName && this.state.lastName && this.state.phoneNumber && this.state.address && this.state.username && this.state.password && this.state.userType && this.state.carMake && this.state.carModel && this.state.carColor && this.state.licensePlate)}
+                      disabled={!(this.state.firstName && this.state.lastName && this.state.username && this.state.password && this.state.userType)}
                       onClick={this.handleFormSubmit}
                       className="btn waves-effect waves-light col s12">Save User</button>
                   </div>

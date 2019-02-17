@@ -13,7 +13,6 @@ class OwnerPage extends Component {
   state = {
     owner: null,
    
-    
 
   }
 

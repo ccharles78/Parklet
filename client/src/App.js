@@ -61,8 +61,18 @@ class App extends Component {
 
 
           <Switch>
-            <Route exact path="/guest" component={AddGuestForm} />
-            <Route exact path="/ownlist" component={OwnerGuestList} />
+            {/* <Route exact path="/guest" component={AddGuestForm} /> */}
+            <Route exact path="/guest" render={props => (
+              <AddGuestForm {...props}
+                ownerID={this.state.currentUser._id} />
+            )} />
+            
+            <Route exact path="/ownlist" render={props => (
+              <OwnerGuestList {...props}
+                ownerID={this.state.currentUser._id} />
+            )} />
+
+
             <Route exact path="/security" component={Security} />
             <Route exact path="/mgmt" component={AddUserForm} />
             {/* <Route exact path="/books/:id" component={Detail} />

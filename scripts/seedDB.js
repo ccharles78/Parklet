@@ -39,7 +39,7 @@ mongoose.connect(
 //         color: "Gold",
 //         licensePlate: "ERF123"
 //     }
-  
+
 //   },
 //   {
 //     firstName: "Chevy",
@@ -54,49 +54,49 @@ mongoose.connect(
 //         color: "Gold",
 //         licensePlate: "ERF123"
 //     }
-  
+
 //   }
 
-  
+
 // ];
 
-const guestCarSeed = [
-    
-    {
-        firstName: "Star",
-        lastName: "Lisa",
-        lotNumber: "1",
-        car: {
-            make: "Toyota",
-            model: "Corolla",
-            color: "Gold",
-            licensePlate: "ERF123"
-        }
-      },
-      {
-          firstName: "Jorge",
-          lastName: "Foreman",
-          lotNumber: "1",
-          car: {
-              make: "Honda",
-              model: "Accord",
-              color: "Red",
-              licensePlate: "IOP545"
-          }
-        },
-        {
-          firstName: "John",
-          lastName: "Snow",
-          lotNumber: "3",
-          car: {
-              make: "Horse",
-              model: "Stallion",
-              color: "Black",
-              licensePlate: "777YYY"
-          }
-        }
-    
-  ];
+// const guestCarSeed = [
+
+//     {
+//         firstName: "Star",
+//         lastName: "Lisa",
+//         lotNumber: "1",
+//         car: {
+//             make: "Toyota",
+//             model: "Corolla",
+//             color: "Gold",
+//             licensePlate: "ERF123"
+//         }
+//       },
+//       {
+//           firstName: "Jorge",
+//           lastName: "Foreman",
+//           lotNumber: "1",
+//           car: {
+//               make: "Honda",
+//               model: "Accord",
+//               color: "Red",
+//               licensePlate: "IOP545"
+//           }
+//         },
+//         {
+//           firstName: "John",
+//           lastName: "Snow",
+//           lotNumber: "3",
+//           car: {
+//               make: "Horse",
+//               model: "Stallion",
+//               color: "Black",
+//               licensePlate: "777YYY"
+//           }
+//         }
+
+//   ];
 
   // 1 - mgmt
 // 2 - owner
@@ -111,7 +111,7 @@ const guestCarSeed = [
         lastName: "lopez",
         username: "Owner1",
         password: "Parklet",
-        phoneNumber: "111-222-5555",
+        phoneNumber: "+17868593967",
         address: "222 SW 54th St",
         lotNumber: "",
         car: {
@@ -119,7 +119,7 @@ const guestCarSeed = [
             model: "Corolla",
             color: "Gold",
             licensePlate: "ERF123"
-        }      
+        }
       },
       //seed user type 1 for mgmt user and login
       {
@@ -137,7 +137,7 @@ const guestCarSeed = [
             color: "",
             licensePlate: ""
         }
-        
+
       },
       //seed user type 3 for security user and login
       {
@@ -171,14 +171,14 @@ const guestCarSeed = [
               color: "",
               licensePlate: ""
           }
-        
+
       }
-      
-    
+
+
   ];
 
 
-  
+
 
 
 
@@ -194,14 +194,14 @@ const guestCarSeed = [
     process.exit(1);
   });
 
-  db.guestcars
-  .remove({})
-  .then(() => db.guestcars.collection.insertMany(guestCarSeed))
-  .then(data => {
-    console.log(data.result.n + " records inserted!");
-    process.exit(0);
-  })
-  .catch(err => {
-    console.error(err);
-    process.exit(1);
-  });
+  // db.guestcar
+  // .remove({})
+  // .then(() => db.guestcar.collection.insertMany(guestCarSeed))
+  // .then(data => {
+  //   console.log(data.result.n + " records inserted!");
+  //   process.exit(0);
+  // })
+  // .catch(err => {
+  //   console.error(err);
+  //   process.exit(1);
+  // });

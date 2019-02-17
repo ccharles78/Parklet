@@ -5,24 +5,23 @@ import AddGuestForm from "../AddGuestForm";
 import OwnerPage from "../OwnerPage";
 import { Route, Redirect } from 'react-router'
 import { Link } from "react-router-dom";
+import moment from "moment";
 
 
 
 
 class OwnerGuestList extends Component {
   state = {
-    owner: null,
-   
+    guests: [],
     
 
   }
 
 componentDidMount(){
- API.getOwners(this.props.ownerID)
+ API.getAllGuests()
  .then(res => {
    console.log(res)
-   this.setState({owner: res.data})
-   
+   this.setState({guests: res.data})
    
    
  })
@@ -30,11 +29,12 @@ componentDidMount(){
 }
 
 
-  
-
-
-
   render() {
+
+const activeGuests = this.state.guests.filter((guest) => {
+return moment(guest.expDate).isAfter(moment())
+})
+
     return (
 
       <div className="container">
@@ -46,12 +46,22 @@ componentDidMount(){
               </div>
               <div> 
               
-              {this.state.owner && this.state.owner.guestcars.map(car => (
+              {activeGuests.length && activeGuests.map(car => (
             
               <div className="card-stacked">
-                <h5 className="right">{car.firstName}</h5>
+                <h5 className="right">License Plate: {car.car.licensePlate}</h5>
                 <div className="card-content">
-                  <p className="right">Location</p>
+                  <p className="right">Guest Last Name: {car.lastName}</p>
+                  <br />
+                  <p className="right">Lot # {car.lotNumber}</p>
+                  <br />
+                  <p className="right">Make: {car.car.make}</p>
+                  <br />
+                  <p className="right">Model: {car.car.model}</p>
+                  <br />
+                  <p className="right">Color: {car.car.color}</p>
+                  <br />
+                  <p className="right">Exp Date & Time: {moment(car.expDate).format("MM DD, YYYY hh:mm:ss")}</p>
                 </div>
               </div>
              
