@@ -79,12 +79,28 @@ removeGuests: function(req, res) {
   },
 
   triggerSMS: function (req, res) {
-    db.guestCars.find({
+    const now = new Date()
+    const future = new Date()
+    console.log("here")
+    future.setHours(future.getHours() + 1);
+
+//'Sat Feb 17 2019 8:30:20 GMT-0500 (Eastern Standard Time)
+    db.guestcar.find({
       $and: [
-      {expirationDate: {$gt: new Date() }},
-      {expirationDate: {$lt: new Date() + 720000}}
+        { expDate: { $gt: new Date(now) } },
+        { expDate: { $lt: new Date(future) } }
       ]
-      })
+    })
+    .then(results => {
+    const guestCarId = results[0]._id
+    db.users.findOne({
+      guestCars: {_id: guestCarId}
+    })
+    }) 
+    .then(dbModel => res.json(dbModel))
+    .catch(err => res.status(422).json(err));
+  },
+
   
-  }
-};
+
+}

@@ -2,6 +2,15 @@
 
 Run NPM I at start
 
+Here are the routes if you want to access the page via url
+
+/guest ={AddGuestForm}
+/ownlist ={OwnerGuestList}
+/security =  {Security}
+/mgmt = {AddUserForm}
+/owner = {OwnerPage}
+/ = default login page
+
 PART 1-------------------------------------------------------------------------------------------------------
 
 In order to use the new functionality you need to have users in the database with a user type. The users types work as follows:

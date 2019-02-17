@@ -38,6 +38,10 @@ router.route("/security")
     res.json(req.user);
   })
  
-  
+ 
+  // execute time comparision alert
+router.route("/trigger")
+.get(parkingController.triggerSMS);
+
 
 module.exports = router;
