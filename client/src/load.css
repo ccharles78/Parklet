@@ -3,11 +3,22 @@ body{
     height: 100vh;
 }
 
-#logo{
+#logo-load{
     font-family: 'Chivo', sans-serif;
     font-size: 50px;
-    color:  #5f2c82;
+    color:  white;
     margin-top: 250px;
     margin-bottom:250px;
 }
 
+.fa-parking{
+    animation: rotation 3s;
+}
+@keyframes rotation {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}

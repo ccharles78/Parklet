@@ -9,3 +9,11 @@
 .checkbox-style{
     opacity: 0!important;
 }
+
+#logo-login{
+    font-family: 'Chivo', sans-serif;
+    font-size: 50px;
+    color:  #49a09d;
+    margin-top: 25px;
+    margin-bottom:25px;
+}

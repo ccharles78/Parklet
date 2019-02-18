@@ -73,16 +73,13 @@ class HomeLogin extends Component {
         <div className="row">
 {!this.state.showLogin ? 
  
-        <div id="logo">
+        <div id="logo-load">
           <div className="row">
-            <i className="fas fa-parking fa-spin fa-fw"></i>arklet
-      </div>
-          <div className="row">
-            <i className="medium material-icons">directions_car</i>
+            <i className="fas fa-parking"></i> arklet
           </div>
-          <div className="row"><button onClick={this.loginButton}>Login</button></div>
-        
-
+          <div className="row">
+            <i className="medium material-icons" onClick={this.loginButton}>directions_car</i>
+          </div>
         </div>
         
         : 
@@ -90,13 +87,13 @@ class HomeLogin extends Component {
         <div className="col s12 offset-s3 z-depth-4" id="panel">
           <form>
             <div className="row">
-              <div className="login-header col s12 center" id="logo">
-                <i className="fas fa-parking"></i>arklet
+              <div className="login-header col s12 center" id="logo-login">
+                <i className="fas fa-parking"></i> arklet
                             </div>
             </div>
             <div className="row">
-              <div className="input-field col s12" id="email">
-                <i className="material-icons prefix">email</i>
+              <div className="input-field col s12">
+                <i className="material-icons prefix">account_circle</i>
                 <input 
                  value={this.state.username}
                  onChange={this.handleInputChange}

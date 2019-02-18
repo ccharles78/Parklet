@@ -29,9 +29,9 @@ const Nav = (props) => {
           <br />
           <Link to="/owner">Add Guest</Link>
           <br />
-          <Link to="/security">List of all current guests</Link>
+          <Link to="/security">Current guests</Link>
           <br />
-          <Link to="/ownList">List of all current guests</Link>
+          <Link to="/ownList">Current guests</Link>
         </div>
       )
       break;
@@ -39,9 +39,10 @@ const Nav = (props) => {
       //navLinks = <Link to="/login">login</Link>
       break;
   }
+// Shari - Chnaged Security and Ownlist title
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav className="nav-wrapper">
 
 
       {
