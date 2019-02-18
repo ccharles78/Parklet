@@ -3,8 +3,8 @@
 Run NPM I from the parklet root folder 
 Navigate into the client folder and run NPM I from there
 Then navigate back out to the parklet root folder 
-run: node seedDB.js to seed your database with login users (you will have to login as an owner to create a guest)
-then run yarn start
+Navigate to the script folder and run: node seedDB.js to seed your database with login users (you will have to login as an owner to create a guest)
+The Navigate back to root parklet folder and then run yarn start
 
 Here are the routes if you want to access the page via url
 
@@ -28,7 +28,7 @@ eg. A user type with 1 is managment that can enter in any type of user (home own
 
 Since your datbase does not match mine and if you alreayd have users created they most likely do not have a user type assigned in the database you need to create new users with a usr type as follows
 
-From the command prompt before you run yarn start, run: node seedDB.js to seed your database with login users (you will have to login as an owner to create a guest).
+From the command prompt before you run yarn start, navigate to the script folder and run: node seedDB.js to seed your database with login users (you will have to login as an owner to create a guest).
 
 You can see 4 types of users that will be created each with a unique user type. You can look at the seedDB file in the scripts folder for more info on the users created, but I have provided the user types, login, and passowrds below for reference (the login and passwords are case sensitive).
 
