@@ -12,6 +12,12 @@
     "install": "cd client && yarn install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
+
+  },
+  "engines":
+   {
+     "yarn": "0.27.5"
+  
   },
   "keywords": [],
   "author": "",
