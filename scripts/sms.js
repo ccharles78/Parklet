@@ -1,14 +1,19 @@
 // Download the helper library from https://www.twilio.com/docs/node/install
 // Your Account Sid and Auth Token from twilio.com/console
-const accountSid = 'AC3093d6add8a9098cb9a2667b1367b976';
-const authToken = 'a7243816b8e16685a3c66b65f91e66c3';
+require('dotenv').config();
+ 
+
+const accountSid = process.env.ACCOUNTSID;
+const authToken = process.env.authToken;
+const from = process.env.FROM;
 const client = require('twilio')(accountSid, authToken);
 
 const sendSMS = (phoneNumber, body) => {
+  console.log("phone:", phoneNumber, "body:", body)
   client.messages
     .create({
       body: body,
-      from: '+13053063012',
+      from: from,
       to: phoneNumber
     })
     .then(message => console.log(message.sid));

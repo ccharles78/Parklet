@@ -12,12 +12,9 @@
     "install": "cd client && yarn install",
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
-
   },
-  "engines":
-   {
-     "yarn": "0.27.5"
-  
+  "engines": {
+    "yarn": "0.27.5"
   },
   "keywords": [],
   "author": "",
@@ -31,6 +28,7 @@
   "dependencies": {
     "@okta/okta-react": "^1.1.4",
     "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "mongoose": "^5.4.11",
     "passport": "^0.4.0",

@@ -42,6 +42,12 @@ app.use(routes);
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/homeOwners");
 
+// use this when you have the mlab uri and comment out line 43 and update env file
+//mongoose.connect(process.env.MONGODB_URI);
+// then in the env file add the following as a new variable with the mlab url : MONGODB_URI=the mlab url , then update heroku w/ the variable as well
+// Then in heroku you need to go to settings and click the reveal config variable option, then enter in each varible as you have it defined in the env file to include the mlab url
+
+
 // Start the API server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);

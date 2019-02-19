@@ -44,9 +44,14 @@ router.route("/guest")
   })
  
  
-  // execute time comparision alert
-router.route("/trigger")
+  // execute time pre expiration SMS message
+router.route("/triggerSMS")
 .get(parkingController.triggerSMS);
+
+   // execute time expiration SMS message
+ router.route("/triggerExpiredSMS")
+ .get(parkingController.triggerExpiredSMS);
+
 
 
 module.exports = router;

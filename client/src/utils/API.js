@@ -10,8 +10,16 @@ export default {
   },
 
   triggerSMS: function(triggerSMS) {
-   return axios.post("/api/routes/triggerSMS", triggerSMS);
+    console.log('is this route workng')
+   return axios.get("/api/routes/triggerSMS", triggerSMS);
   },
+
+  triggerExpiredSMS: function(triggerExpiredSMS) {
+    console.log('is this route workng')
+   return axios.get("/api/routes/triggerExpiredSMS", triggerExpiredSMS);
+  },
+
+  
 
   saveOwner: function(ownerData) {
     return axios.post("/api/routes/mgmt", ownerData);
@@ -25,6 +33,7 @@ export default {
   },
 
   updateGuest: function(guestData){
+    console.log(guestData)
     return axios.put("/api/routes/guest/" + guestData.id, guestData );
   },
 

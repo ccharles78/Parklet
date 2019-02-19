@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 const db = require("../models");
+require('dotenv').config();
+ 
+const phoneNumber = process.env.PHONENUMBER;
 
 // This file empties the collections and inserts the books below
 
-mongoose.connect(
-  process.env.MONGODB_URI ||
-  "mongodb://localhost/homeOwners"
-);
+
 
 // const homeOwnerSeed = [
 
@@ -111,7 +111,7 @@ mongoose.connect(
         lastName: "lopez",
         username: "Owner1",
         password: "Parklet",
-        phoneNumber: "+17868593967",
+        phoneNumber: phoneNumber,
         address: "222 SW 54th St",
         lotNumber: "",
         car: {

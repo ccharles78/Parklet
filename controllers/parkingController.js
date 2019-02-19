@@ -96,22 +96,47 @@ module.exports = {
       .then(results => {
         for(let i = 0; i < results.length; i++){
           const guestCarId = results[i].id
+          const guestCarFirstName = results[i].firstName
           const o_id = new ObjectId(guestCarId);
-          findUserAndSendSMS(o_id)
+          const body = "Your guest's " + guestCarFirstName + " car is about to expire"
+          findUserAndSendSMS(o_id, body)
         }
       })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+
+
+  triggerExpiredSMS: function (req, res) {
+    const now = new Date()
+  
+    //'Sat Feb 17 2019 8:30:20 GMT-0500 (Eastern Standard Time)
+    db.guestcar.find({
+    expDate: { $lt: new Date(now)}
+    })
+      .then(results => {
+        for(let i = 0; i < results.length; i++){
+          const guestCarId = results[i].id
+          const guestCarFirstName = results[i].firstName
+          const o_id = new ObjectId(guestCarId);
+          const body = "Your guest's " + guestCarFirstName + " car is now expired"
+          findUserAndSendSMS(o_id, body)
+        }
+      })
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
+
 }
 
-const findUserAndSendSMS = (o_id) => {
+
+
+const findUserAndSendSMS = (o_id, body) => {
   db.users.findOne({
     guestcars: o_id
   })
   .then((results) => {
     const { phoneNumber } = results
-    const body = 'your guests car is about to expire'
     sendSMS(phoneNumber, body)
   })
 }
