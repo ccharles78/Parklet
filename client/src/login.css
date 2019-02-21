@@ -17,3 +17,36 @@
     margin-top: 25px;
     margin-bottom:25px;
 }
+
+.input-field>label {
+    color: #5680E9 !important;
+   }
+   [type=text]:not(.browser-default) {
+   border-bottom: 1px solid #5680E9 !important;
+   }
+   .input-field .prefix.active {
+    color: #8860d0 !important;
+   }
+   .row input[type=text]:focus + label {
+     color: #8860d0 !important;
+   }
+   .row input[type=text]:focus {
+      border-bottom: 1px solid #8860d0 !important;
+      box-shadow: 0 1px 0 0 #8860d0 !important;
+    }
+   .row input[type=password]:focus {
+      border-bottom: 1px solid #8860d0 !important;
+      box-shadow: 0 1px 0 0 #8860d0 !important;
+    }
+   
+   input[type=password].valid {
+    box-shadow: 0 1px 0 0 #8860d0;
+   }
+   
+   .btn {
+    background-color: #8860d0;
+   }
+   
+   .btn:hover {
+    background-color: #5680E9;
+   }

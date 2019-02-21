@@ -35,7 +35,7 @@ componentDidMount(){
 <div>
       <div className="hero-header">
       <div>
-          <img src="images/noactiveguests.png" alt="map" />
+         
       </div>
         <div className="chip">
           <div className="row">

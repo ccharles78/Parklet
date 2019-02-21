@@ -1,6 +1,7 @@
 body{
-    background-image: radial-gradient(#5f2c82, #49a09d);
-    height: 100vh;
+  background: linear-gradient(217deg, rgba(193,200,228,.8), rgba(193,200,228,0) 70.71%),
+        linear-gradient(127deg, rgba(90,185,234,.8), rgba(90,185,234,0) 70.71%),
+        linear-gradient(336deg, rgba(136,96,208,.8), rgba(136,96,208,0) 70.71%);
     font-family: 'Chivo', sans-serif;
     color: #5680E9;
 }
@@ -25,10 +26,31 @@ i.small {
 
 /* Cards */
 
-.icon-block {
+ 
+ .icon-block {
   background: #F1F9FF;
-}
-
-i.medium {
+  padding: 8px;
+ }
+ 
+ i.medium {
+  color: #5680E9;
   font-size: 3rem !important;
-}
+ }
+ .card .card-content {
+  background-color: #F1F9FF;
+ }
+ 
+ 
+ .valign-wrapper {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+ }
+
+ .hero-header {
+  text-align: center;
+ }
+ 
