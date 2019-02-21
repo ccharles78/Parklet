@@ -98,7 +98,7 @@ module.exports = {
           const guestCarId = results[i].id
           const guestCarFirstName = results[i].firstName
           const o_id = new ObjectId(guestCarId);
-          const body = "Your guest's " + guestCarFirstName + " car is about to expire"
+          const body = guestCarFirstName + "'s car is about to expire"
           findUserAndSendSMS(o_id, body)
         }
       })
@@ -119,7 +119,7 @@ module.exports = {
           const guestCarId = results[i].id
           const guestCarFirstName = results[i].firstName
           const o_id = new ObjectId(guestCarId);
-          const body = "Your guest's " + guestCarFirstName + " car is now expired"
+          const body = guestCarFirstName + "'s car is now expired"
           findUserAndSendSMS(o_id, body)
         }
       })

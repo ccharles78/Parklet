@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {SideNav, SideNavItem, Button} from 'react-materialize';
 
 
 
@@ -28,9 +29,9 @@ const Nav = (props) => {
       navLinks = (
         <div>
           <Link to="/ownlist">Current Guests</Link>
-          <br />
+          
           <Link to="/owner">Home Page</Link>
-          <br />
+          
           <Link to="/guest">Add Guest</Link>
         </div>
       )
@@ -57,16 +58,17 @@ const Nav = (props) => {
   }
 
   return (
-    <nav className="nav-wrapper">
+    <SideNav  trigger={<Button>NAV Menu</Button>}        options={{ closeOnClick: true }}  >
 
 
       {
-
-        props.login ? navLinks : <Link to="/login">login</Link>
+        
+        props.login ? navLinks : <Link to="/homeLogin">login</Link>
 
       }
-    {props.login && <Link to="/logout">Logout</Link> }
-    </nav>
+    {props.login && <Link to="/">Logout</Link> }
+    </SideNav>
+    //</nav>
   )
 };
 
