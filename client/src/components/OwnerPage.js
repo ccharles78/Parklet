@@ -41,7 +41,7 @@ componentDidMount(){
           <div className="row">
             <div className="col s-12">
               
-                <i className="small material-icons">person</i>
+                 <i className="small material-icons">person</i> 
              
             </div>
           </div>
