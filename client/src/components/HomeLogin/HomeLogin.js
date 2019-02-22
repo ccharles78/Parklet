@@ -6,6 +6,7 @@ import '../../load.css';
 import '../../login.css';
 import '../../main.css';
 import '../../nag.css';
+import logo from '../PLogo.png';
 
 
 
@@ -75,7 +76,8 @@ class HomeLogin extends Component {
  
         <div id="logo-load">
           <div className="row">
-            <i className="fas fa-parking"></i> arklet
+          <img className="fa-parking" src={logo}  />
+            {/* <i className="fas fa-parking"></i> */} arklet
           </div>
           <div className="row">
             <i className="medium material-icons" onClick={this.loginButton}>directions_car</i>
@@ -88,7 +90,8 @@ class HomeLogin extends Component {
           <form>
             <div className="row">
               <div className="login-header col s12 center" id="logo-login">
-                <i className="fas fa-parking"></i> arklet
+              <img className="fa-parking" src={logo}  />
+                {/* <i className="fas fa-parking"></i> */}arklet 
                             </div>
             </div>
             <div className="row">
