@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Input, TextArea, FormBtn } from "../../components/Form";
 import API from "../../utils/API";
-import { Button, Form, column } from 'react-materialize'
+import { Button, Form, column } from 'react-materialize';
+import logo from '../PLogo.png';
 
 
 
@@ -63,8 +64,9 @@ class AddGuestForm extends Component {
             <form>
               <div className="row">
                 <div className="login-header col s12 center" id="logo">
-                  <i className="fas fa-parking"></i>arklet
-                            </div>
+                <img className="fa-parking" src={logo}  />
+                  arklet
+          </div>
               </div>
               <div className="row">
                 <div className="input-field col s12">

@@ -6,7 +6,7 @@ import OwnerPage from "../OwnerPage";
 import { Route, Redirect } from 'react-router'
 import { Link } from "react-router-dom";
 import moment from "moment";
-
+import logo from '../PLogo.png';
 
 
 
@@ -40,12 +40,18 @@ return moment(guest.expDate).isAfter(moment())
       {activeGuests.length && activeGuests.map(car => (
       <div className="container">
         <div className="row">
+                <div className="login-header col s12 center" id="logo">
+                <img className="fa-parking" src={logo}  />
+                  arklet
+          </div>
+        </div>
+        <div className="row">
           <div className="col s12 m10">
             <div className="card horizontal">
               <div className="card-image">
                 <h2 className="left"><i className="medium material-icons">account_circle</i></h2>
               </div>
-              <div> 
+
               
             
             
@@ -71,8 +77,8 @@ return moment(guest.expDate).isAfter(moment())
             </div>
           </div>
         </div>
-        </div>
-        </div>
+      </div>
+
 
 ))}
 </div>  

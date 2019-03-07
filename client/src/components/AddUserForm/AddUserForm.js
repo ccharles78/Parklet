@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Input, TextArea, FormBtn } from "../Form";
 import API from "../../utils/API";
-import { Button, Form, column } from 'react-materialize'
+import { Button, Form, column } from 'react-materialize';
+import logo from '../PLogo.png';
 
 
 
@@ -70,7 +71,8 @@ class AddUserForm extends Component {
             <form>
               <div className="row">
                 <div className="login-header col s12 center" id="logo">
-                  <i className="fas fa-parking"></i>arklet
+                <img className="fa-parking" src={logo}  />
+                  arklet
               </div>
               </div>
               <div className="row">
